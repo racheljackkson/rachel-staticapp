@@ -1,31 +1,28 @@
 {% extends '_layouts/base.njk' %}
 
-{% block page_title %}New index page title{% endblock %}
+{% block page_title %}The Ship's Log{% endblock %}
 
 {% block content %}
 
 <div class="container">
   <div class="row">
-    <div class="col">
-    <h1>Main headline</h1>
-    <p class="author">By {% for author in authors %}
-      <a href="{{ author.link }}" target="_blank">{{ author.name }}</a>{% if not loop.last %}{% if loop.revindex0 == 1 %} and {% else %}, {% endif %}{% endif %} {% endfor %}
-      <br> Published {{ publish_date }}
+    <div class="col-sm-8 offset-sm-2">
+    <h1>High Stakes When Out In High Seas</h1>
+    <p class="author">By Capt. Crit McGillicutty
+      <br> Published October 2018
     </p>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-sm-8 offset-sm-2">
       <p>
-        Lucas ipsum dolor <a href="detail-page.html">link to detail-page.html</a> amidala sith dooku solo moff organa obi-wan windu. Gamorrean binks wedge darth. Mon darth mon kit ponda solo. Moff watto ackbar mothma moff anakin. Lando skywalker lars fett calrissian lars organa. Organa kenobi wedge darth jawa skywalker anakin. Twi'lek kit darth calamari lando kamino droid. Darth jawa fett grievous maul. Palpatine obi-wan leia tusken raider dagobah. Twi'lek qui-gon boba antilles yoda thrawn. Wampa luuke wampa skywalker. Moff ponda ackbar dagobah kit lobot jinn solo.
+        Yar Pirate Ipsum, <a href="detail-page.html">link to detail-page.html</a> Measured fer yer chains maroon sheet gunwalls hardtack come about reef Brethren of the Coast Cat o'nine tails starboard. Parley code of conduct lee lugger wherry driver gunwalls scuppers barkadeer strike colors. Yardarm overhaul knave main sheet Pieces of Eight Jolly Roger hulk lugger clap of thunder to go on account.Mutiny lookout Sail ho to go on account ho lugger hulk skysail booty reef. Dead men tell no tales swab clipper spirits Yellow Jack bounty rutters clap of thunder port interloper. Black spot Spanish Main keelhaul booty come about parrel Admiral of the Black shrouds loaded to the gunwalls weigh anchor.
       </p>
-      <ul> 
-        {% for book in data.books %}
-          <li>{{ book.title }}, {{ book.author }}</li>
-        {% else %}
-          <li>This would display if the 'books' collection were empty</li>
-        {% endfor %}
-     </ul>
+      {% for entry in data.entries %}
+        <h3 class="entry-headline"><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+        <p class="entry-date">{{ entry.date }}</p>
+        <hr>
+      {% endfor %}
     </div>
   </div>
 </div>
